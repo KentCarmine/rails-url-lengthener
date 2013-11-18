@@ -17,16 +17,23 @@ $(document).ready(function() {
   $("#new_url_form").on("submit", function(event){
     event.preventDefault();
 
-    // if() {
-    data = $(this).serialize();
-    create_url = "/urls"
+    // var valid_url_pattern = new RegExp("^https?:\/\/.+(\..{2,5}).*$");
+    var valid_url_pattern = /^https?:\/\/.+(\..{2,5}).*$/i
+    var input_url = $("#url_original_url").val();
 
-    $.post(create_url, data, function(response){
-      $(".url_list").append(response);
-    });
-  // } else {
+    is_valid_url = valid_url_pattern.test(input_url);
 
-  // }
+    if(is_valid_url) {
+      var data = $(this).serialize();
+      var create_url = "/urls"
+
+      $.post(create_url, data, function(response){
+        $(".url_list").append(response);
+      });
+    }
+    else {
+      alert("URL is not valid!");
+    }
 
   });
 });
