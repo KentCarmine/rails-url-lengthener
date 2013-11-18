@@ -1,4 +1,9 @@
 RailsUrlLengthener::Application.routes.draw do
+
+  resources :urls, :only => [:index, :create, :show]
+
+  root :to => 'urls#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

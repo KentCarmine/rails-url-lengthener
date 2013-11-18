@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Welcome to URL Lengthener!</h1>
+  <%= render "new_url" %>
+  <br>
+  <div class="url_list">
+    <% @all_urls = Url.all %>
+
+    <% @all_urls.each do |url| %>
+      <%= render "show_url", :url => url %>
+    <% end %>
+
+  </div>
+</div>
