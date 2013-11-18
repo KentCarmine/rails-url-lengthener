@@ -14,7 +14,11 @@ class UrlsController < ApplicationController
   def create
     @url = Url.find_or_create_by_original_url(params[:url])
 
-    redirect_to :urls
+    if request.xhr?
+      render :partial => "show_url", :locals => {:url => @url}
+    else
+      redirect_to :urls
+    end
   end
 
 end

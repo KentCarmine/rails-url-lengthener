@@ -1,4 +1,5 @@
 <h4><%= url.id %>. <%= url.original_url %></h4>
-<%= link_to "http://localhost:3000/#{url.lengthened_url}", "/urls/#{url.id}" %>
+<%= link_to "http://localhost:3000/#{url.lengthened_url}", "/urls/#{url.id}",
+  :target => "_blank" %>
 <br>
 <p>Clicked <%= url.link_views.length %> times</p>

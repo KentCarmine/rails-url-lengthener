@@ -13,3 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(document).ready(function() {
+  $("#new_url_form").on("submit", function(event){
+    event.preventDefault();
+
+    // if() {
+    data = $(this).serialize();
+    create_url = "/urls"
+
+    $.post(create_url, data, function(response){
+      $(".url_list").append(response);
+    });
+  // } else {
+
+  // }
+
+  });
+});
